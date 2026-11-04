@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#101025"><title>A–Z Showdown</title>
+<style>
+:root{--bg:#0d1022;--panel:#171b35;--panel2:#202647;--text:#f6f7ff;--muted:#aab2d2;--pink:#ff4f9a;--cyan:#42d9e8;--yellow:#ffd166;--green:#6be3a2}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 15% 0%,#28204f 0,transparent 45%),radial-gradient(ellipse at 100% 20%,#123c50 0,transparent 38%),var(--bg);color:var(--text);font:16px/1.45 Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,sans-serif;min-height:100vh}
+button,input,select{font:inherit}button{border:0;border-radius:13px;padding:13px 18px;font-weight:800;cursor:pointer;color:#101025;background:linear-gradient(110deg,var(--yellow),#ff9f68)}button:disabled{opacity:.45;cursor:not-allowed}.secondary{background:var(--panel2);color:var(--text);border:1px solid #343c64}.danger{background:#592b50;color:#ffd8e9}
+.wrap{max-width:1050px;margin:auto;padding:24px 16px 50px}.top{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:28px}.brand{font-weight:1000;letter-spacing:.04em;font-size:22px}.brand span{color:var(--yellow)}.pill{border:1px solid #3c456d;border-radius:99px;padding:6px 11px;color:var(--muted);font-size:12px}
+.panel{background:linear-gradient(145deg,rgba(28,33,64,.96),rgba(18,23,46,.96));border:1px solid #343d67;border-radius:22px;padding:22px;box-shadow:0 18px 55px #0004}.hero{text-align:center;padding:35px 20px}.eyebrow{color:var(--cyan);font-weight:900;letter-spacing:.18em;font-size:11px}.hero h1{font-size:clamp(38px,8vw,68px);line-height:1;margin:12px 0}.hero h1 span{color:var(--yellow)}.sub{color:var(--muted);max-width:600px;margin:0 auto 24px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:15px;margin-top:18px}.field{display:flex;flex-direction:column;gap:7px;margin:12px 0;text-align:left}.field label{font-size:12px;color:var(--muted);font-weight:800;text-transform:uppercase;letter-spacing:.08em}.field input,.field select,.answer{width:100%;background:#0f1430;color:var(--text);border:1px solid #3b456f;border-radius:12px;padding:13px;outline:none}.field input:focus,.answer:focus{border-color:var(--cyan)}.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}.row>*{flex:1}.hidden{display:none!important}.muted{color:var(--muted)}.title{font-size:24px;font-weight:950;margin:0 0 5px}.roomcode{font-size:30px;font-weight:1000;letter-spacing:.2em;color:var(--yellow)}.players{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:9px;margin:16px 0}.player{padding:11px;background:#101630;border:1px solid #30395f;border-radius:12px;display:flex;justify-content:space-between;gap:8px}.dot{width:8px;height:8px;border-radius:50%;display:inline-block;background:var(--green);margin-right:6px}.bigletter{font-size:clamp(88px,20vw,150px);line-height:1;font-weight:1000;color:var(--yellow);text-shadow:0 8px 45px #ffd16644;text-align:center;margin:8px}.timer{text-align:center;font-size:24px;font-weight:900;color:var(--cyan)}.answers{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px;margin:22px 0}.answerbox{background:#111731;border:1px solid #30395f;border-radius:15px;padding:12px}.answerbox label{display:block;color:var(--muted);font-weight:900;font-size:12px;text-transform:uppercase;margin-bottom:7px}.answer{padding:11px}.scoregrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px}.score{background:#111731;border-radius:14px;padding:14px;text-align:center}.score strong{display:block;font-size:25px;color:var(--yellow)}.resultrow{display:grid;grid-template-columns:1fr auto auto;gap:10px;padding:10px;border-bottom:1px solid #30395f;align-items:center}.positive{color:var(--green);font-weight:900}.negative{color:#ff7ba9;font-weight:900}.question{font-size:24px;font-weight:900;margin:18px 0}.option{display:block;width:100%;margin:9px 0;text-align:left;background:#101630;color:var(--text);border:1px solid #3b456f}.option.selected{border-color:var(--cyan);background:#17394a}.footer{text-align:center;color:#7883ac;font-size:12px;margin-top:22px}.notice{padding:11px 13px;border-radius:12px;background:#352944;color:#ffd7ed;margin:12px 0}.small{font-size:12px}
+@media(max-width:560px){.wrap{padding:15px 11px 35px}.panel{padding:17px}.top{margin-bottom:18px}.row button{width:100%}.resultrow{grid-template-columns:1fr auto}.resultrow span:nth-child(2){display:none}}
+</style>
+</head>
+<body><div class="wrap">
+<header class="top"><div class="brand">⚡ A–Z <span>SHOWDOWN</span></div><div class="pill">REAL-TIME PARTY GAME · 2–8 PLAYERS</div></header>
+<main>
+<section id="home">
+ <div class="panel hero"><div class="eyebrow">THINK FAST. WRITE FASTER.</div><h1>A–Z <span>SHOWDOWN</span></h1><p class="sub">A fast, funny, fiercely competitive word and trivia battle. Grab your friends, join a room, and claim the crown.</p></div>
+ <div class="grid">
+  <div class="panel"><h2 class="title">Create a room</h2><p class="muted small">Become the host and invite up to seven friends.</p>
+   <div class="field"><label>Your nickname</label><input id="hostName" maxlength="18" placeholder="e.g. Word Wizard"></div>
+   <div class="field"><label>Game mode</label><select id="hostMode"><option value="classic">Classic A–Z</option><option value="trivia">Trivia Blitz</option><option value="team">Team Battle</option></select></div>
+   <div class="field"><label>Match length</label><select id="hostRounds"><option value="5">5 rounds · Quick</option><option value="10" selected>10 rounds · Standard</option><option value="15">15 rounds · Extended</option></select></div>
+   <button id="createBtn" style="width:100%">Create game room →</button>
+  </div>
+  <div class="panel"><h2 class="title">Join a room</h2><p class="muted small">Enter the six-character code shared by your host.</p>
+   <div class="field"><label>Your nickname</label><input id="joinName" maxlength="18" placeholder="Choose a nickname"></div>
+   <div class="field"><label>Room code</label><input id="joinCode" maxlength="6" placeholder="ABC123" style="text-transform:uppercase;letter-spacing:.18em"></div>
+   <button id="joinBtn" class="secondary" style="width:100%">Join the showdown →</button>
+  </div>
+ </div>
+</section>
+<section id="game" class="hidden">
+ <div class="panel">
+  <div class="row" style="justify-content:space-between"><div><div class="eyebrow">ROOM CODE</div><div class="roomcode" id="roomCode">------</div></div><div style="text-align:right"><div class="pill" id="modePill">CLASSIC A–Z</div><div class="muted small" id="roundLabel">Waiting room</div></div></div>
+  <div id="lobby">
+   <h2 class="title" style="margin-top:20px">Players in the room</h2><div id="playerList" class="players"></div>
+   <div id="hostControls" class="hidden"><p class="muted small">You're the host. Start when at least two players are connected.</p><button id="startBtn">Start the game 🚀</button></div>
+   <p id="guestWait" class="muted small">Waiting for the host to start the game…</p>
+  </div>
+  <div id="play" class="hidden">
+   <div class="eyebrow" style="text-align:center" id="roundEyebrow">ROUND 1</div>
+   <div id="letterArea"><div class="bigletter" id="letter">A</div><div class="muted" style="text-align:center">NAME · ANIMAL · PLACE · FOOD · THING</div><button id="randomLetterBtn" class="secondary hidden" style="display:block;margin:10px auto">Change letter randomly 🎲</button></div>
+   <div id="triviaArea" class="hidden"><div class="question" id="question"></div><div id="options"></div></div>
+   <div class="timer" id="timer">01:00</div>
+   <div id="classicAnswers" class="answers">
+    <div class="answerbox"><label>Name</label><input class="answer" autocomplete="off" data-cat="0" placeholder="A name beginning with…"></div>
+    <div class="answerbox"><label>Animal</label><input class="answer" autocomplete="off" data-cat="1" placeholder="An animal…"></div>
+    <div class="answerbox"><label>Place</label><input class="answer" autocomplete="off" data-cat="2" placeholder="A place…"></div>
+    <div class="answerbox"><label>Food</label><input class="answer" autocomplete="off" data-cat="3" placeholder="A food…"></div>
+    <div class="answerbox"><label>Thing</label><input class="answer" autocomplete="off" data-cat="4" placeholder="An object…"></div>
+   </div>
+   <button id="submitBtn" style="width:100%" disabled>Lock in my answers ✓</button><p id="submitStatus" class="muted small"></p>
+  </div>
+  <div id="results" class="hidden"><h2 class="title">Round results</h2><div id="resultContent"></div><div class="row" style="margin-top:18px"><button id="nextBtn">Next round →</button><button id="rematchBtn" class="secondary hidden">Play again ↻</button></div><p id="nextHint" class="muted small"></p></div>
+  <div id="finished" class="hidden" style="text-align:center"><div class="eyebrow">THE SHOWDOWN IS OVER</div><h2 class="title" style="font-size:34px;margin:12px">🏆 <span id="winner"></span></h2><p class="muted">Final leaderboard</p><div id="finalScores"></div><button id="againBtn" style="margin-top:18px">Rematch ↻</button></div>
+ </div>
+</section>
+<div id="toast" class="notice hidden" role="status"></div>
+</main><div class="footer">A–Z SHOWDOWN · Make every letter count.</div></div>
+<script>
+let ws, room=null, me=null, selectedTrivia=null, tick=null, lastState=null;
+const $=id=>document.getElementById(id);
+function toast(s){$("toast").textContent=s;$("toast").classList.remove("hidden");setTimeout(()=>$("toast").classList.add("hidden"),3500)}
+function connect(){return new Promise((resolve,reject)=>{
+ const proto=location.protocol==="https:"?"wss:":"ws:";
+ ws=new WebSocket(`${proto}//${location.host}`);
+ ws.onopen=()=>resolve(); ws.onerror=()=>reject(new Error("Could not connect to the game server."));
+ ws.onmessage=e=>{const m=JSON.parse(e.data);if(m.type==="error"){toast(m.message);return}
+ if(m.room){room=m.room;me=m.you||me;render(m.type)}
+ if(m.type==="joined"){ $("home").classList.add("hidden");$("game").classList.remove("hidden"); }
+ };
+ ws.onclose=()=>{if(room && room.status!=="finished")toast("Connection lost. Refresh to reconnect.");};
+})}
+function send(type,data={}){if(ws&&ws.readyState===1)ws.send(JSON.stringify({type,...data}));}
+async function create(){try{await connect();send("create",{name:$("hostName").value,mode:$("hostMode").value,totalRounds:$("hostRounds").value})}catch(e){toast(e.message)}}
+async function join(){try{await connect();send("join",{name:$("joinName").value,code:$("joinCode").value.trim().toUpperCase()})}catch(e){toast(e.message)}}
+$("createBtn").onclick=create;$("joinBtn").onclick=join;
+$("joinCode").addEventListener("input",e=>e.target.value=e.target.value.toUpperCase().replace(/[^A-Z0-9]/g,""));
+$("startBtn").onclick=()=>send("start",{mode:$("hostMode").value,totalRounds:$("hostRounds").value});
+$("submitBtn").onclick=submit;
+$("randomLetterBtn").onclick=()=>send("random-letter");
+$("nextBtn").onclick=()=>{if($("nextBtn").disabled)return;$("nextBtn").disabled=true;send("next")};
+$("againBtn").onclick=()=>send("rematch");$("rematchBtn").onclick=()=>send("rematch");
+function showOnly(id){["lobby","play","results","finished"].forEach(x=>$(x).classList.toggle("hidden",x!==id))}
+function updateSubmitAvailability(){
+ const submitted=room?.players.find(p=>p.id===me)?.submitted;
+ if(submitted){$("submitBtn").disabled=true;return;}
+ if(room?.mode==="trivia") $("submitBtn").disabled=selectedTrivia===null;
+ else $("submitBtn").disabled=!([...document.querySelectorAll(".answer")].some(input=>input.value.trim()));
+}
+document.querySelectorAll(".answer").forEach(input=>input.addEventListener("input",updateSubmitAvailability));
+function render(type){
+ if(!room)return;
+ $("roomCode").textContent=room.code;
+ $("modePill").textContent=({classic:"CLASSIC A–Z",trivia:"TRIVIA BLITZ",team:"TEAM BATTLE"})[room.mode];
+ $("roundLabel").textContent=`Round ${room.round||0} of ${room.totalRounds}`;
+ $("playerList").innerHTML=room.players.map(p=>`<div class="player"><span>${esc(p.name)} ${p.id===room.hostId?"👑":""}</span><span class="muted">${p.connected?"●":"○"} ${p.score}</span></div>`).join("");
+ const isHost=me===room.hostId;
+ $("hostControls").classList.toggle("hidden",!isHost);$("guestWait").classList.toggle("hidden",isHost);
+ $("startBtn").disabled=room.players.length<2;
+ if(room.status==="lobby"){showOnly("lobby");return}
+ if(room.status==="playing"){
+  showOnly("play");
+  $("roundEyebrow").textContent=`ROUND ${room.round} OF ${room.totalRounds}`;
+  $("letter").textContent=room.letter||"";
+  $("letterArea").classList.toggle("hidden",room.mode==="trivia");
+  $("classicAnswers").classList.toggle("hidden",room.mode==="trivia");
+  $("randomLetterBtn").classList.toggle("hidden",!isHost || room.mode==="trivia");
+  $("submitBtn").classList.toggle("hidden",room.players.find(p=>p.id===me)?.submitted);
+  $("submitStatus").textContent=room.players.find(p=>p.id===me)?.submitted?"Your answers are locked. Waiting for everyone else…":"";
+  if(room.mode==="trivia"){
+   $("triviaArea").classList.remove("hidden");$("question").textContent=room.triviaQuestion.question;
+   $("options").innerHTML=room.triviaQuestion.options.map((o,i)=>`<button class="option ${selectedTrivia===i?"selected":""}" data-option="${i}">${String.fromCharCode(65+i)}. ${esc(o)}</button>`).join("");
+   document.querySelectorAll("[data-option]").forEach(b=>b.onclick=()=>{selectedTrivia=Number(b.dataset.option);document.querySelectorAll("[data-option]").forEach(x=>x.classList.toggle("selected",x===b));updateSubmitAvailability()});
+  }else $("triviaArea").classList.add("hidden");
+  if(type==="round"){
+   selectedTrivia=null;
+   document.querySelectorAll(".answer").forEach(x=>x.value="");
+  }
+  if(!room.players.find(p=>p.id===me)?.submitted) updateSubmitAvailability();
+  startTicker();return;
+ }
+ if(room.status==="results"){
+  showOnly("results");stopTicker();renderResults();
+  $("nextBtn").disabled=false;
+  $("nextBtn").textContent=room.round>=room.totalRounds?"Show final results →":"Next round →";
+  $("nextBtn").classList.remove("hidden");
+  $("nextHint").textContent=room.round>=room.totalRounds?"Continue to the final results.":"Continue to the next round.";
+  return;
+ }
+ if(room.status==="finished"){showOnly("finished");stopTicker();$("winner").textContent=room.winner||"It's a tie!";$("finalScores").innerHTML=leaderboard();$("againBtn").classList.toggle("hidden",!isHost)}
+}
+function startTicker(){stopTicker();const update=()=>{const left=Math.max(0,room.deadline-Date.now());$("timer").textContent=`00:${String(Math.ceil(left/1000)).padStart(2,"0")}`;if(left<=0)stopTicker()};update();tick=setInterval(update,200)}
+function stopTicker(){if(tick)clearInterval(tick);tick=null}
+function submit(){
+ if(room.mode==="trivia"){if(selectedTrivia===null)return toast("Choose an answer first.");send("submit",{answer:selectedTrivia})}
+ else {const answers=[...document.querySelectorAll(".answer")].map(x=>x.value);send("submit",{answers})}
+ $("submitBtn").disabled=true;
+}
+function leaderboard(){return [...room.players].sort((a,b)=>b.score-a.score).map((p,i)=>`<div class="resultrow"><span>${i+1}. ${esc(p.name)} ${p.team?`· Team ${p.team}`:""}</span><strong>${p.score} pts</strong></div>`).join("")}
+function renderResults(){
+ const rows=room.results||[];
+ if(room.mode==="trivia"){
+  $("resultContent").innerHTML=`<div class="muted small">Correct answer: ${esc(room.triviaQuestion?.correctAnswer||"See round scores")}</div>`+rows.map(r=>`<div class="resultrow"><span>${esc(r.name)} · ${esc(r.answer)}</span><strong class="${r.points>=0?"positive":"negative"}">${r.points>0?"+":""}${r.points}</strong></div>`).join("");
+ }else{
+  const grouped=["Name","Animal","Place","Food","Thing"].map(cat=>{
+   const items=rows.filter(r=>r.category===cat);
+   return `<h3 style="margin:17px 0 5px;color:var(--cyan)">${cat}</h3>`+items.map(r=>`<div class="resultrow"><span>${esc(r.name)} · ${esc(r.answer)}</span><strong class="${r.points>=0?"positive":"negative"}">${r.points>0?"+":""}${r.points}</strong><span class="muted small">${r.outcome}</span></div>`).join("");
+  }).join("");
+  $("resultContent").innerHTML=grouped;
+ }
+ $("resultContent").innerHTML+=`<h3 style="margin-top:22px">Leaderboard</h3>${leaderboard()}`;
+}
+function esc(s){return String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+</script></body></html>
