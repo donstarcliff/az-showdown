@@ -2,7 +2,14 @@
 <html lang="en">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#101025"><title>A–Z Showdown</title>
+<meta name="theme-color" content="#101025">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="A-Z Showdown">
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/icon-192.png" sizes="192x192">
+<link rel="apple-touch-icon" href="/icon-192.png">
+<title>A–Z Showdown</title>
 <style>
 :root{--bg:#0d1022;--panel:#171b35;--panel2:#202647;--text:#f6f7ff;--muted:#aab2d2;--pink:#ff4f9a;--cyan:#42d9e8;--yellow:#ffd166;--green:#6be3a2}
 *{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 15% 0%,#28204f 0,transparent 45%),radial-gradient(ellipse at 100% 20%,#123c50 0,transparent 38%),var(--bg);color:var(--text);font:16px/1.45 Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,sans-serif;min-height:100vh}
@@ -154,4 +161,5 @@ function renderResults(){
  $("resultContent").innerHTML+=`<h3 style="margin-top:22px">Leaderboard</h3>${leaderboard()}`;
 }
 function esc(s){return String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+if("serviceWorker" in navigator)navigator.serviceWorker.register("/service-worker.js").catch(()=>{});
 </script></body></html>
